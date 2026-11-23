@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { 
-  Users, 
-  CheckCircle2, 
-  Clock, 
-  XCircle, 
-  Sparkles, 
-  RefreshCw, 
-  BarChart2, 
-  Radio, 
+import {
+  Users,
+  CheckCircle2,
+  Clock,
+  XCircle,
+  Sparkles,
+  RefreshCw,
+  BarChart2,
+  Radio,
   AlertTriangle,
   Search,
   MessageSquare,
@@ -185,7 +185,7 @@ export const DashboardOverview: React.FC = () => {
   const leaveDiscrepanciesList: any[] = stats?.leave_attendance_discrepancies || stats?.consecutive_absentees || [];
   const filteredDiscrepancies = leaveDiscrepanciesList.filter(s => {
     const matchesFloor = leaveFloor === 'All' || String(s.floor_id) === String(leaveFloor);
-    const matchesJustify = leaveJustifyFilter === 'all' || 
+    const matchesJustify = leaveJustifyFilter === 'all' ||
       (leaveJustifyFilter === 'justified' && s.is_justified) ||
       (leaveJustifyFilter === 'unjustified' && !s.is_justified);
     const matchesSearch = !leaveSearch ||
@@ -199,7 +199,7 @@ export const DashboardOverview: React.FC = () => {
 
   return (
     <div className="dashboard-content-wrapper">
-      
+
       {/* Floor Leader Notice Banner */}
       {stats?.is_leader_view && (
         <div style={{
@@ -260,8 +260,8 @@ export const DashboardOverview: React.FC = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              background: isToday 
-                ? 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)' 
+              background: isToday
+                ? 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)'
                 : 'linear-gradient(135deg, #475569 0%, #334155 100%)',
               color: '#ffffff',
               padding: '5px 13px',
@@ -457,10 +457,10 @@ export const DashboardOverview: React.FC = () => {
                 }}
               >
                 {renderSessionIcon(
-                  sess.icon_name, 
-                  sess.session_key, 
-                  14, 
-                  undefined, 
+                  sess.icon_name,
+                  sess.session_key,
+                  14,
+                  undefined,
                   { color: isSelected ? '#ffffff' : '#64748b' }
                 )}
                 <span>{sess.session_name}</span>
@@ -629,13 +629,13 @@ export const DashboardOverview: React.FC = () => {
                     }}
                     cursor={{ fill: 'rgba(241, 245, 249, 0.7)' }}
                   />
-                  <Legend 
-                    verticalAlign="top" 
-                    align="right" 
-                    height={30} 
+                  <Legend
+                    verticalAlign="top"
+                    align="right"
+                    height={30}
                     iconType="circle"
                     iconSize={8}
-                    wrapperStyle={{ fontSize: '11px', fontWeight: 600, paddingBottom: '8px', color: '#475569' }} 
+                    wrapperStyle={{ fontSize: '11px', fontWeight: 600, paddingBottom: '8px', color: '#475569' }}
                   />
                   <Bar dataKey="present" name="Present" fill="#2A9D8F" radius={[6, 6, 0, 0]} barSize={11} />
                   <Bar dataKey="late" name="Late" fill="#E09F3E" radius={[6, 6, 0, 0]} barSize={11} />
@@ -765,9 +765,9 @@ export const DashboardOverview: React.FC = () => {
 
           {/* Filters for Discrepancy Table */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <select 
-              value={leaveJustifyFilter} 
-              onChange={e => setLeaveJustifyFilter(e.target.value as any)} 
+            <select
+              value={leaveJustifyFilter}
+              onChange={e => setLeaveJustifyFilter(e.target.value as any)}
               style={{ minWidth: '190px', height: '40px', fontSize: '13px', fontWeight: 600, padding: '0 12px', borderRadius: '10px', border: '1.5px solid #cbd5e1', backgroundColor: '#ffffff', cursor: 'pointer' }}
             >
               <option value="all">All Discrepancies</option>
@@ -775,9 +775,9 @@ export const DashboardOverview: React.FC = () => {
               <option value="justified">Met & Justified Only</option>
             </select>
 
-            <select 
-              value={leaveFloor} 
-              onChange={e => setLeaveFloor(e.target.value)} 
+            <select
+              value={leaveFloor}
+              onChange={e => setLeaveFloor(e.target.value)}
               style={{ minWidth: '140px', height: '40px', fontSize: '13px', fontWeight: 600, padding: '0 12px', borderRadius: '10px', border: '1.5px solid #cbd5e1', backgroundColor: '#ffffff', cursor: 'pointer' }}
             >
               <option value="All">All Floors</option>
@@ -800,11 +800,11 @@ export const DashboardOverview: React.FC = () => {
             <span style={{
               padding: '8px 16px',
               borderRadius: '20px',
-              backgroundColor: filteredDiscrepancies.length > 0 
-                ? (leaveJustifyFilter === 'justified' ? '#ecfdf5' : '#fff7ed') 
+              backgroundColor: filteredDiscrepancies.length > 0
+                ? (leaveJustifyFilter === 'justified' ? '#ecfdf5' : '#fff7ed')
                 : '#f8fafc',
-              color: filteredDiscrepancies.length > 0 
-                ? (leaveJustifyFilter === 'justified' ? '#047857' : '#c2410c') 
+              color: filteredDiscrepancies.length > 0
+                ? (leaveJustifyFilter === 'justified' ? '#047857' : '#c2410c')
                 : '#64748b',
               fontSize: '13px',
               fontWeight: 800,
@@ -922,7 +922,7 @@ export const DashboardOverview: React.FC = () => {
                   </td>
                   <td style={{ padding: '12px 14px', color: '#475569', fontSize: '13px', whiteSpace: 'nowrap' }}>
                     {s.phone_number ? (
-                      <a 
+                      <a
                         href={`tel:${s.phone_number}`}
                         style={{ color: '#0284c7', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: 600 }}
                       >
@@ -970,8 +970,8 @@ export const DashboardOverview: React.FC = () => {
                       </span>
                       <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '5px', alignItems: 'center' }}>
                         {(s.marked_dates || []).map((d: string) => (
-                          <span 
-                            key={d} 
+                          <span
+                            key={d}
                             style={{
                               padding: '2px 7px',
                               backgroundColor: '#fff7ed',
@@ -1061,11 +1061,11 @@ export const DashboardOverview: React.FC = () => {
                       )}
 
                       <button
-                        onClick={() => setJustifyModal({ 
-                          isOpen: true, 
-                          student: s, 
-                          reason: s.justification_reason || 'Met student in room - verified physical presence and early return from leave.', 
-                          error: undefined 
+                        onClick={() => setJustifyModal({
+                          isOpen: true,
+                          student: s,
+                          reason: s.justification_reason || 'Met student in room - verified physical presence and early return from leave.',
+                          error: undefined
                         })}
                         style={{
                           padding: '6px 14px',
@@ -1115,8 +1115,8 @@ export const DashboardOverview: React.FC = () => {
                   {justifyModal.student.name} ({justifyModal.student.student_code}) • {justifyModal.student.floor_name || `Floor ${justifyModal.student.floor_id}`} • Room {justifyModal.student.room_number || 'N/A'}
                 </p>
               </div>
-              <button 
-                onClick={() => setJustifyModal(null)} 
+              <button
+                onClick={() => setJustifyModal(null)}
                 style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
               >
                 <X size={20} />
@@ -1148,13 +1148,13 @@ export const DashboardOverview: React.FC = () => {
             </div>
 
             {justifyModal.error && (
-              <div style={{ 
-                padding: '10px 14px', 
-                backgroundColor: '#fef2f2', 
-                border: '1px solid #fecaca', 
-                borderRadius: '8px', 
-                color: '#b91c1c', 
-                fontSize: '13px', 
+              <div style={{
+                padding: '10px 14px',
+                backgroundColor: '#fef2f2',
+                border: '1px solid #fecaca',
+                borderRadius: '8px',
+                color: '#b91c1c',
+                fontSize: '13px',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
@@ -1175,11 +1175,11 @@ export const DashboardOverview: React.FC = () => {
                 value={justifyModal.reason}
                 onChange={e => setJustifyModal({ ...justifyModal, reason: e.target.value, error: undefined })}
                 placeholder="Enter meeting details (e.g. Met student in hostel room 302, student returned 2 days early from home leave, physically verified presence)..."
-                style={{ 
-                  width: '100%', 
-                  padding: '12px 14px', 
-                  borderRadius: '8px', 
-                  border: justifyModal.error ? '2px solid #ef4444' : '1px solid #cbd5e1', 
+                style={{
+                  width: '100%',
+                  padding: '12px 14px',
+                  borderRadius: '8px',
+                  border: justifyModal.error ? '2px solid #ef4444' : '1px solid #cbd5e1',
                   fontFamily: 'inherit',
                   fontSize: '13px',
                   resize: 'vertical'
@@ -1191,12 +1191,12 @@ export const DashboardOverview: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setJustifyModal(null)}
-                style={{ 
-                  padding: '10px 18px', 
-                  background: '#f1f5f9', 
-                  border: '1px solid #cbd5e1', 
-                  borderRadius: '8px', 
-                  cursor: 'pointer', 
+                style={{
+                  padding: '10px 18px',
+                  background: '#f1f5f9',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '13px',
                   color: '#475569'
@@ -1208,13 +1208,13 @@ export const DashboardOverview: React.FC = () => {
                 type="button"
                 disabled={submittingJustify}
                 onClick={handleSaveJustification}
-                style={{ 
-                  padding: '10px 20px', 
-                  background: '#10b981', 
-                  color: '#ffffff', 
-                  border: 'none', 
-                  borderRadius: '8px', 
-                  cursor: submittingJustify ? 'not-allowed' : 'pointer', 
+                style={{
+                  padding: '10px 20px',
+                  background: '#10b981',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: submittingJustify ? 'not-allowed' : 'pointer',
                   fontWeight: 700,
                   fontSize: '13px',
                   display: 'inline-flex',
